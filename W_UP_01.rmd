@@ -68,7 +68,7 @@ The skilled players on average have done more pushups than the line players, wit
 t.test(pushups~position,data=mydata)
 ```
 
-The p value is 0.000009421. Because this value is smaller than 0.05, I reject the null hypothesis and conclude therefore that there is a difference in the average number of pushups that can be done by players on the line and skill position. 
+The p value is 0.000009421. Because this value is lower than 0.05, I reject the null hypothesis and conclude therefore that there is a difference in the average number of pushups that can be done by players on the line and skill position. 
 
 # Discussion and Conclusion
 
