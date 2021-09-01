@@ -182,6 +182,7 @@ pre code {
 <div id="methods" class="section level1">
 <h1>Methods</h1>
 <!--Decide on your methods: use "variable analysis" or other appropriate descriptors. Make sure to choose at least one graphical method and at least one numerical method.!-->
+<p>Because the explanatory variable is categorical, and the response variable is numerical, we are going to use a t-test for inference.</p>
 </div>
 <div id="results" class="section level1">
 <h1>Results</h1>
@@ -198,16 +199,35 @@ pre code {
 <div id="numerical-descriptive-results" class="section level3">
 <h3>Numerical Descriptive Results</h3>
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+<pre class="r"><code>favstats(pushups~position,data=mydata)</code></pre>
+<pre><code>##   position min    Q1 median    Q3 max     mean        sd  n missing
+## 1     LINE   6 10.25   14.5 24.25  34 17.12500  9.745878  8       0
+## 2    SKILL  18 31.25   47.5 57.50 108 49.72727 23.036579 22       0</code></pre>
+<p>The skilled players on average have done more pushups than the line players, with the skilled players doing about 49.7 pushups and the line players doing about 17.1 pushups.</p>
 </div>
 </div>
 <div id="inferential-results" class="section level2">
 <h2>Inferential Results</h2>
-<!--State hypothesis clearly. Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc. Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+<!--State hypothesis clearly. Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc. Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfy the assumptions and is appropriate to answer the research question!-->
+<pre class="r"><code>t.test(pushups~position,data=mydata)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  pushups by position
+## t = -5.4341, df = 27.079, p-value = 9.421e-06
+## alternative hypothesis: true difference in means between group LINE and group SKILL is not equal to 0
+## 95 percent confidence interval:
+##  -44.91068 -20.29387
+## sample estimates:
+##  mean in group LINE mean in group SKILL 
+##            17.12500            49.72727</code></pre>
+<p>The p value is 0.000009421. Because this value is smaller than 0.05, I reject the null hypothesis and conclude therefore that there is a difference in the average number of pushups that can be done by players on the line and skill position.</p>
 </div>
 </div>
 <div id="discussion-and-conclusion" class="section level1">
 <h1>Discussion and Conclusion</h1>
-<!--Discussion and conclusion here. If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason. Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+<!--Discussion and conclusion here. If you found a relationship be sure to consider whether the relationship occurs because one of the variables causes the other, or whether they perhaps are related for some other reason. Watch the chapter 6 videos from the George Town videos collection.!-->
+<p>The original question was if there was a difference between the pushups done in 2 minutes between the line and skill players. Based on the results that we saw, we conclude that there is a difference between how many pushups are done between line and skill players. We see that skill players do more pushups in 2 minutes with an average of 49.7 pushups.</p>
 </div>
 
 
